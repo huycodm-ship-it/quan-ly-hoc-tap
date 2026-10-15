@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Danh sách môn học cá nhân">
+    <title>Môn học | StudyFlow</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .add-subject-card {
+            min-height: 385px;
+            border: 2px dashed #dc8588;
+            background: rgba(255, 255, 255, .55);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            cursor: pointer;
+            transition: .25s
+        }
+
+        .add-subject-card:hover {
+            transform: translateY(-4px);
+            background: #fff
+        }
+
+        .add-subject-card .plus {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: auto;
+            background: #f7d9da;
+            color: #bb6269;
+            font-size: 2.5rem
+        }
+
+        .add-subject-card h2 {
+            margin: 16px 0 6px
+        }
+
+        .add-subject-card p {
+            min-height: 0;
+            margin: 0
+        }
+
+        .study-setting {
+            margin-top: 30px;
+            padding: 28px;
+            background: #fff;
+            border-radius: 28px;
+            box-shadow: 0 22px 55px rgba(83, 35, 40, .14)
+        }
+
+        .setting-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px
+        }
+
+        .setting-info p {
+            color: #77727a;
+            line-height: 1.6
+        }
+
+        .setting-control {
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .duration-row {
+            display: grid;
+            grid-template-columns: 1fr 110px;
+            gap: 10px
+        }
+
+        .duration-row input,
+        .duration-row select,
+        .modal-box input,
+        .modal-box textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #eadfe0;
+            border-radius: 13px;
+            background: #f8f6f6;
+            outline: none
+        }
+
+        .saved-time {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #eadfe0;
+            color: #77727a
+        }
+
+        .saved-time strong {
+            color: #bb6269
+        }
+
+        .subject-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(39, 36, 40, .55);
+            display: none;
+            place-items: center;
+            padding: 20px;
+            z-index: 100
+        }
+
+        .subject-modal.show {
+            display: grid
+        }
+
+        .modal-box {
+            width: min(470px, 100%);
+            background: #fff;
+            padding: 28px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, .2)
+        }
+
+        .modal-box h2 {
+            margin-top: 0
+        }
+
+        .modal-box label {
+            display: block;
+            font-weight: 700;
+            margin: 14px 0 7px
+        }
+
+        .modal-box textarea {
+            min-height: 90px;
+            resize: vertical
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px
+        }
+
+        .modal-actions button {
+            flex: 1
+        }
+
+        .subject-actions button:disabled {
+            opacity: .55;
+            cursor: not-allowed
+        }
+
+        @media(max-width:700px) {
+            .setting-content {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            .setting-control {
+                min-width: 0
+            }
+        }
+
+        @media(max-width:480px) {
+            .duration-row {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body class="page">
+    <header class="topbar">
+        <a class="brand" href="home.html"><span class="brand-mark">✓</span>StudyFlow</a>
+        <nav class="nav"><a class="active" href="home.html">Trang chủ</a><a
+                href="dashboard.html">Dashboard</a></nav>
+        <div class="user-pill"><span class="avatar">S</span><span data-user>Bạn</span></div>
+    </header>
+
+    <main class="main">
+        <div class="hero-row">
+            <div>
+                <h1>Hôm nay bạn học gì?</h1>
+            </div>
+            <div class="summary-chip">Tiến độ trung bình: <span id="avg">0%</span></div>
+        </div>
+
+        <section class="subjects" id="mon-hoc">
+            <article class="subject" data-subject="toan">
+                <div class="subject-top">
+                    <div class="subject-icon">∑</div><span class="tag">Tư duy</span>
+                </div>
+                <h2>Toán học</h2>
+                <p>Ôn luyện công thức, bài tập và kỹ năng giải quyết vấn đề.</p>
+                <div class="progress-head"><span>Tiến độ</span><span data-value>0%</span></div>
+                <div class="bar"><span></span></div>
+                <div class="subject-actions"><button class="primary" type="button" data-study-button
+                        data-subject-key="toan">Bắt đầu học</button></div>
+            </article>
+
+            <article class="subject" data-subject="ly">
+                <div class="subject-top">
+                    <div class="subject-icon">⚡</div><span class="tag">Khám phá</span>
+                </div>
+                <h2>Vật lý</h2>
+                <p>Tìm hiểu các quy luật tự nhiên qua lý thuyết và thí nghiệm.</p>
+                <div class="progress-head"><span>Tiến độ</span><span data-value>0%</span></div>
+                <div class="bar"><span></span></div>
+                <div class="subject-actions"><button class="primary" type="button" data-study-button
+                        data-subject-key="ly">Bắt đầu học</button></div>
+            </article>
+
+            <article class="subject" data-subject="hoa">
+                <div class="subject-top">
+                    <div class="subject-icon">⚗</div><span class="tag">Thực hành</span>
+                </div>
+                <h2>Hóa học</h2>
+                <p>Ghi nhớ phản ứng, nguyên tố và vận dụng vào bài tập.</p>
+                <div class="progress-head"><span>Tiến độ</span><span data-value>0%</span></div>
+                <div class="bar"><span></span></div>
+                <div class="subject-actions"><button class="primary" type="button" data-study-button
+                        data-subject-key="hoa">Bắt đầu học</button></div>
+            </article>
+
+            <article class="subject add-subject-card" id="addSubjectCard" tabindex="0" role="button">
+                <div>
+                    <div class="plus">+</div>
+                    <h2>Thêm môn học</h2>
+                    <p>Tạo môn học tùy chỉnh của bạn</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="study-setting">
+            <div class="setting-content">
+                <div class="setting-info">
+                    <h2>Đặt thời gian học</h2>
+                    <p>Chọn thời gian cho phiên học. Khi hết giờ, môn đang học tự động đạt 100%.</p>
+                </div>
+                <div class="setting-control">
+                    <label for="studyDuration">Thời gian muốn học</label>
+                    <div class="duration-row"><input type="number" id="studyDuration" min="1" value="3"><select
+                            id="studyUnit">
+                            <option value="minutes">Phút</option>
+                            <option value="hours">Giờ</option>
+                        </select></div>
+                    <button type="button" class="primary" id="saveStudyTime">Lưu thời gian</button>
+                </div>
+            </div>
+            <div class="saved-time">Thời gian đã đặt: <strong id="currentStudyTime">3 phút</strong></div>
+        </section>
+
+        <div class="notice">Nhấn <b>Bắt đầu học</b> tại môn bạn muốn học. Khi hết thời gian, môn đang học sẽ đạt
+            <b>100%</b> và tự động cập nhật vào Dashboard.</div>
+    </main>
+
+    <div class="subject-modal" id="subjectModal">
+        <form class="modal-box" id="addSubjectForm">
+            <h2>Thêm môn học mới</h2>
+            <label for="newSubjectName">Tên môn học</label><input id="newSubjectName" maxlength="30" required
+                placeholder="Ví dụ: Tiếng Anh">
+            <label for="newSubjectIcon">Biểu tượng</label><input id="newSubjectIcon" maxlength="3" value="📘"
+                placeholder="📘">
+            <label for="newSubjectTag">Chủ đề</label><input id="newSubjectTag" maxlength="20" value="Tự học"
+                placeholder="Tự học">
+            <label for="newSubjectDescription">Mô tả</label><textarea id="newSubjectDescription" maxlength="120"
+                required placeholder="Nội dung bạn muốn học..."></textarea>
+            <div class="modal-actions"><button class="secondary" id="cancelAddSubject" type="button">Hủy</button><button
+                    class="primary" type="submit">Thêm môn học</button></div>
+        </form>
+    </div>
+
+    <div class="toast" aria-live="polite"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Đăng nhập vào trang quản lý học tập cá nhân">
+    <title>Đăng nhập | Quản lý học tập</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="login-page">
+    <main class="auth-shell">
+        <section class="auth-art">
+            <div class="brand"><span class="brand-mark">✓</span> StudyFlow</div>
+            <div>
+                <h1>Học đều.<br>Tiến bộ thật.</h1>
+                <p>Một không gian gọn gàng để bạn theo dõi môn học và nhìn thấy sự tiến bộ mỗi ngày.</p>
+            </div>
+        </section>
+        <section class="auth-panel"><span class="eyebrow">Chào mừng bạn</span>
+            <h2 id="authTitle">Đăng nhập</h2>
+            <p class="sub">Nhập thông tin để tiếp tục vào trang học tập.</p>
+            <form id="authForm">
+                <div class="field"><label for="name">Tên của bạn</label><input id="name" required
+                        placeholder="Nguyễn Văn A"></div>
+                <div class="field"><label for="email">Email</label><input id="email" type="email" required
+                        placeholder="ban@example.com"></div>
+                <div class="field"><label for="password">Mật khẩu</label><input id="password" type="password" required
+                        minlength="4" placeholder="••••••••"></div>
+                <div class="field hidden" id="confirmField"><label for="confirm">Nhập lại mật khẩu</label><input
+                        id="confirm" type="password" placeholder="••••••••"></div><button class="primary"
+                    id="authSubmit" type="submit" style="width:100%">Đăng nhập</button>
+            </form><button class="switch" id="toggleAuth">Chưa có tài khoản? Đăng ký</button>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>
