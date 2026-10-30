@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1">
+
+    <meta
+        name="description"
+        content="Quản lý tài khoản StudyFlow">
+
+    <title>Tài khoản | StudyFlow</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css">
+
+</head>
+
+
+<body class="page">
+
+
+    <!-- ================================
+         HEADER
+         ================================ -->
+
+    <header class="topbar">
+
+        <a
+            class="brand"
+            href="home.html">
+
+            <span class="brand-mark">
+                ✓
+            </span>
+
+            StudyFlow
+
+        </a>
+
+
+        <nav class="nav">
+
+            <a href="home.html">
+                Trang chủ
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a
+                href="profile.html"
+                class="active">
+
+                Tài khoản
+
+            </a>
+
+        </nav>
+
+
+        <!-- PROFILE BUTTON -->
+
+        <a
+            href="profile.html"
+            class="user-pill profile-user-link">
+
+            <span
+                class="avatar"
+                data-avatar>
+                B
+            </span>
+
+            <span data-user>
+                Bạn
+            </span>
+
+        </a>
+
+    </header>
+
+
+    <!-- ================================
+         MAIN
+         ================================ -->
+
+    <main class="main">
+
+
+        <div class="profile-page-title">
+
+            <div>
+
+                <span class="eyebrow">
+                    Tài khoản cá nhân
+                </span>
+
+                <h1>
+                    Cài đặt tài khoản
+                </h1>
+
+                <p>
+                    Quản lý thông tin tài khoản
+                    và giao diện StudyFlow.
+                </p>
+
+            </div>
+
+
+            <a
+                href="home.html"
+                class="back-home">
+
+                ← Quay lại
+
+            </a>
+
+        </div>
+
+
+        <!-- ================================
+             PROFILE CARD
+             ================================ -->
+
+        <section class="profile-container">
+
+
+            <!-- THÔNG TIN -->
+
+            <div class="profile-header">
+
+                <div
+                    class="profile-avatar-preview"
+                    id="profileAvatarLarge">
+
+                    B
+
+                </div>
+
+
+                <div>
+
+                    <h2
+                        class="profile-title-name"
+                        id="profileDisplayName">
+
+                        Bạn
+
+                    </h2>
+
+
+                    <p
+                        class="profile-subtitle"
+                        id="profileDisplayEmail">
+
+                        Chưa cập nhật email
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 FORM PROFILE
+                 ================================ -->
+
+            <form id="profileForm">
+
+
+                <div class="form-group">
+
+                    <label for="profileName">
+                        Tên tài khoản
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profileName"
+                        maxlength="50"
+                        placeholder="Nhập tên của bạn"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="profileEmail">
+                        Địa chỉ Gmail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="profileEmail"
+                        placeholder="example@gmail.com"
+                        required>
+
+                </div>
+
+
+                <div
+                    id="profileMessage"
+                    class="profile-message">
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary profile-save-button">
+
+                    Lưu thông tin
+
+                </button>
+
+
+            </form>
+
+
+            <hr class="form-divider">
+
+
+            <!-- ================================
+                 ĐỔI MẬT KHẨU
+                 ================================ -->
+
+            <div class="password-section">
+
+
+                <div class="password-section-info">
+
+                    <h2 class="section-title">
+                        Mật khẩu
+                    </h2>
+
+                    <p class="theme-desc">
+                        Bạn có thể thay đổi
+                        mật khẩu tài khoản tại đây.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="secondary change-password-button"
+                    id="showPasswordForm">
+
+                    Đổi mật khẩu
+
+                </button>
+
+            </div>
+
+
+            <!-- FORM ĐỔI MẬT KHẨU -->
+
+            <div
+                class="change-password-form"
+                id="changePasswordForm">
+
+
+                <h3>
+                    Đổi mật khẩu
+                </h3>
+
+
+                <div class="form-group">
+
+                    <label for="oldPassword">
+                        Mật khẩu cũ
+                    </label>
+
+                    <input
+                        type="password"
+                        id="oldPassword"
+                        placeholder="Nhập mật khẩu hiện tại">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newPassword">
+                        Mật khẩu mới
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        placeholder="Nhập mật khẩu mới">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Xác nhận mật khẩu mới
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Nhập lại mật khẩu mới">
+
+                </div>
+
+
+                <div
+                    id="passwordMessage"
+                    class="profile-message">
+                </div>
+
+
+                <div class="password-form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary"
+                        id="cancelPasswordChange">
+
+                        Hủy
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary"
+                        id="confirmPasswordChange">
+
+                        Đồng ý đổi mật khẩu
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <hr class="form-divider">
+
+
+            <!-- ================================
+                 GIAO DIỆN
+                 ================================ -->
+
+            <div class="theme-section">
+
+
+                <div>
+
+                    <h2 class="section-title">
+                        Giao diện
+                    </h2>
+
+                    <p class="theme-desc">
+                        Chọn giao diện bạn muốn
+                        sử dụng cho StudyFlow.
+                    </p>
+
+                </div>
+
+
+                <div class="theme-options">
+
+
+                    <button
+                        type="button"
+                        class="theme-option"
+                        data-theme-choice="light">
+
+                        <span class="theme-icon">
+                            ☀️
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Sáng
+                            </strong>
+
+                            <small>
+                                Giao diện sáng
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="theme-option"
+                        data-theme-choice="dark">
+
+                        <span class="theme-icon">
+                            🌙
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Tối
+                            </strong>
+
+                            <small>
+                                Giao diện tối
+                            </small>
+
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+            <hr class="form-divider">
+
+
+            <!-- ================================
+                 ĐĂNG XUẤT
+                 ================================ -->
+
+            <div class="logout-section">
+
+
+                <div>
+
+                    <h2 class="section-title">
+                        Đăng xuất
+                    </h2>
+
+                    <p class="theme-desc">
+                        Đăng xuất khỏi tài khoản
+                        StudyFlow trên thiết bị này.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-danger"
+                    id="logoutButton">
+
+                    Đăng xuất
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         TOAST
+         ================================ -->
+
+    <div
+        class="toast"
+        aria-live="polite">
+    </div>
+
+
+    <!-- ================================
+         JAVASCRIPT
+         ================================ -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
