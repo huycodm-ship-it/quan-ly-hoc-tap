@@ -2,57 +2,440 @@
 <html lang="vi">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <meta name="description" content="Dashboard theo dõi kết quả học tập">
+
     <title>Dashboard | StudyFlow</title>
+
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
+
 <body class="page">
-    <header class="topbar"><a class="brand" href="home.html"><span class="brand-mark">✓</span> StudyFlow</a>
-        <nav class="nav"><a href="home.html">Trang chủ</a><a class="active" href="dashboard.html">Dashboard</a></nav>
-        <div class="user-pill"><span class="avatar">S</span><span data-user>Bạn</span></div>
-    </header>
-    <main class="main" id="dashboard">
-        <div class="hero-row">
-            <div><span class="eyebrow">Báo cáo cá nhân</span>
-                <h1>Kết quả học tập</h1>
-                <p>Tổng hợp từ những bài học bạn đã hoàn thành.</p>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="topbar">
+
+        <!-- LOGO -->
+
+        <a class="brand" href="home.html">
+
+            <span class="brand-mark">
+                ✓
+            </span>
+
+            StudyFlow
+
+        </a>
+
+
+        <!-- MENU -->
+
+        <nav class="nav">
+
+            <a href="home.html">
+                Trang chủ
+            </a>
+
+            <a class="active" href="dashboard.html">
+                Dashboard
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+             TÀI KHOẢN
+             ================================================= -->
+
+        <div class="account-wrapper">
+
+            <!-- NÚT AVATAR -->
+
+            <button class="user-account-button" id="accountButton" type="button" aria-label="Mở tài khoản">
+
+                <span class="avatar" data-avatar>
+                    S
+                </span>
+
+                <span data-user>
+                    Bạn
+                </span>
+
+                <span class="account-arrow">
+                    ▾
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 POPUP TÀI KHOẢN
+                 ================================================= -->
+
+            <div class="account-menu" id="accountMenu">
+
+                <!-- THÔNG TIN TÀI KHOẢN -->
+
+                <div class="account-card">
+
+                    <div class="account-big-avatar" data-avatar>
+                        S
+                    </div>
+
+
+                    <div class="account-info">
+
+                        <strong data-user>
+                            Bạn
+                        </strong>
+
+                        <span data-email>
+                            Chưa có email
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ĐƯỜNG KẺ -->
+
+                <div class="account-divider"></div>
+
+
+                <!-- TRANG CÁ NHÂN -->
+
+                <a href="profile.html" class="account-menu-item">
+
+                    <span class="menu-icon">
+                        👤
+                    </span>
+
+                    <span>
+                        Xem trang cá nhân
+                    </span>
+
+                </a>
+
+
+                <!-- CHẾ ĐỘ TỐI -->
+
+                <div class="account-menu-item theme-menu-item">
+
+                    <span class="menu-icon">
+                        🌙
+                    </span>
+
+                    <span class="theme-menu-text">
+                        Chế độ tối
+                    </span>
+
+
+                    <label class="theme-switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="theme-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- CÀI ĐẶT -->
+
+                <a href="profile.html" class="account-menu-item">
+
+                    <span class="menu-icon">
+                        ⚙️
+                    </span>
+
+                    <span>
+                        Cài đặt tài khoản
+                    </span>
+
+                </a>
+
+
+                <!-- ĐĂNG XUẤT -->
+
+                <button class="account-menu-item logout-menu" id="menuLogout" type="button">
+
+                    <span class="menu-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Đăng xuất
+                    </span>
+
+                </button>
+
             </div>
+
         </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         NỘI DUNG DASHBOARD
+         ===================================================== -->
+
+    <main class="main" id="dashboard">
+
+
+        <!-- TIÊU ĐỀ -->
+
+        <div class="hero-row">
+
+            <div>
+
+                <span class="eyebrow">
+                    Báo cáo cá nhân
+                </span>
+
+
+                <h1>
+                    Kết quả học tập
+                </h1>
+
+
+                <p>
+                    Tổng hợp từ những bài học bạn đã hoàn thành.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             THỐNG KÊ
+             ================================================= -->
+
         <section class="stats">
-            <div class="stat"><small>Tiến độ trung bình</small><strong id="overall">0%</strong></div>
-            <div class="stat"><small>Số bài đã học</small><strong id="lessonCount">0</strong></div>
-            <div class="stat"><small>Môn hoàn thành</small><strong><span id="doneCount">0</span>/3</strong></div>
+
+
+            <!-- TIẾN ĐỘ TRUNG BÌNH -->
+
+            <div class="stat">
+
+                <small>
+                    Tiến độ trung bình
+                </small>
+
+                <strong id="overall">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <!-- SỐ BÀI ĐÃ HỌC -->
+
+            <div class="stat">
+
+                <small>
+                    Số bài đã học
+                </small>
+
+                <strong id="lessonCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <!-- MÔN HOÀN THÀNH -->
+
+            <div class="stat">
+
+                <small>
+                    Môn hoàn thành
+                </small>
+
+                <strong>
+
+                    <span id="doneCount">
+                        0
+                    </span>/3
+
+                </strong>
+
+            </div>
+
         </section>
+
+
+
+        <!-- =================================================
+             BIỂU ĐỒ DASHBOARD
+             ================================================= -->
+
         <section class="dashboard-grid" style="margin-top:22px">
+
+
+            <!-- BIỂU ĐỒ TIẾN ĐỘ -->
+
             <div class="card">
-                <h2>Tiến độ theo môn</h2>
+
+                <h2>
+                    Tiến độ theo môn
+                </h2>
+
+
                 <div class="bars-chart">
+
+
+                    <!-- TOÁN -->
+
                     <div class="chart-col">
-                        <div class="chart-bar" data-chart="toan"></div><span>Toán</span>
+
+                        <div class="chart-bar" data-chart="toan"></div>
+
+                        <span>
+                            Toán
+                        </span>
+
                     </div>
+
+
+                    <!-- VẬT LÝ -->
+
                     <div class="chart-col">
-                        <div class="chart-bar" data-chart="ly"></div><span>Vật lý</span>
+
+                        <div class="chart-bar" data-chart="ly"></div>
+
+                        <span>
+                            Vật lý
+                        </span>
+
                     </div>
+
+
+                    <!-- HÓA HỌC -->
+
                     <div class="chart-col">
-                        <div class="chart-bar" data-chart="hoa"></div><span>Hóa học</span>
+
+                        <div class="chart-bar" data-chart="hoa"></div>
+
+                        <span>
+                            Hóa học
+                        </span>
+
                     </div>
+
+
                 </div>
+
             </div>
+
+
+
+            <!-- =================================================
+                 TỔNG QUAN
+                 ================================================= -->
+
             <div class="card">
-                <h2>Tổng quan</h2>
-                <div class="ring"><strong id="ringOverall">0%</strong></div>
-                <div class="legend">
-                    <div class="legend-row"><span>Toán học</span><span data-score="toan">0%</span></div>
-                    <div class="legend-row"><span>Vật lý</span><span data-score="ly">0%</span></div>
-                    <div class="legend-row"><span>Hóa học</span><span data-score="hoa">0%</span></div>
+
+                <h2>
+                    Tổng quan
+                </h2>
+
+
+                <!-- VÒNG TRÒN -->
+
+                <div class="ring">
+
+                    <strong id="ringOverall">
+                        0%
+                    </strong>
+
                 </div>
+
+
+                <!-- CHÚ THÍCH -->
+
+                <div class="legend">
+
+
+                    <!-- TOÁN -->
+
+                    <div class="legend-row">
+
+                        <span>
+                            Toán học
+                        </span>
+
+                        <span data-score="toan">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <!-- VẬT LÝ -->
+
+                    <div class="legend-row">
+
+                        <span>
+                            Vật lý
+                        </span>
+
+                        <span data-score="ly">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                    <!-- HÓA HỌC -->
+
+                    <div class="legend-row">
+
+                        <span>
+                            Hóa học
+                        </span>
+
+                        <span data-score="hoa">
+                            0%
+                        </span>
+
+                    </div>
+
+
+                </div>
+
             </div>
+
+
         </section>
+
+
     </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
     <script src="app.js"></script>
+
+
 </body>
 
 </html>
