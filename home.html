@@ -7,14 +7,132 @@
     <meta name="description" content="Danh sách môn học cá nhân">
     <title>Môn học | StudyFlow</title>
     <link rel="stylesheet" href="styles.css">
-    
+
 </head>
 
 <body class="page">
     <header class="topbar">
         <a class="brand" href="home.html"><span class="brand-mark">✓</span>StudyFlow</a>
         <nav class="nav"><a class="active" href="home.html">Trang chủ</a><a href="dashboard.html">Dashboard</a></nav>
-        <div class="user-pill"><span class="avatar">S</span><span data-user>Bạn</span></div>
+        <div class="account-wrapper">
+
+            <button class="user-account-button" id="accountButton" type="button">
+
+                <span class="avatar" data-avatar>S</span>
+
+                <span data-user>Bạn</span>
+
+                <span class="account-arrow">
+                    ▾
+                </span>
+
+            </button>
+
+
+            <!-- POPUP TÀI KHOẢN -->
+
+            <div class="account-menu" id="accountMenu">
+
+                <!-- THÔNG TIN NGƯỜI DÙNG -->
+
+                <div class="account-card">
+
+                    <div class="account-big-avatar" data-avatar>
+                        S
+                    </div>
+
+                    <div class="account-info">
+
+                        <strong data-user>
+                            Bạn
+                        </strong>
+
+                        <span data-email>
+                            Chưa có email
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-divider"></div>
+
+
+                <!-- XEM PROFILE -->
+
+                <a href="profile.html" class="account-menu-item">
+
+                    <span class="menu-icon">
+                        👤
+                    </span>
+
+                    <span>
+                        Xem trang cá nhân
+                    </span>
+
+                </a>
+
+
+                <!-- CHẾ ĐỘ SÁNG / TỐI -->
+
+                <div class="account-menu-item theme-menu-item">
+
+                    <span class="menu-icon">
+                        🌙
+                    </span>
+
+                    <span class="theme-menu-text">
+                        Chế độ tối
+                    </span>
+
+                    <label class="theme-switch">
+
+                        <input type="checkbox" id="darkModeToggle">
+
+                        <span class="theme-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- CÀI ĐẶT -->
+
+                <a href="profile.html" class="account-menu-item">
+
+                    <span class="menu-icon">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Cài đặt tài khoản
+                    </span>
+
+                    <span class="menu-arrow">
+                        ›
+                    </span>
+
+                </a>
+
+
+                <!-- ĐĂNG XUẤT -->
+
+                <button class="account-menu-item logout-menu" id="menuLogout" type="button">
+
+                    <span class="menu-icon">
+                        ⇥
+                    </span>
+
+                    <span>
+                        Đăng xuất
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
     </header>
 
     <main class="main">
